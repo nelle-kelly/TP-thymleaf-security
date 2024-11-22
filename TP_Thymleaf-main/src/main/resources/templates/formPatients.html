@@ -11,7 +11,7 @@
     <div layout:fragment="content1">
         <div class="col-md-6 offset-3">
 
-            <form method="post" th:action="@{save}">
+            <form method="post" th:action="@{save(page=${page},keyword=${keyword})}">
                 <div>
                     <label>Nom</label>
                     <input class="form-control" type="text" name="nom" th:value="${patient.nom}">
@@ -29,10 +29,10 @@
                 </div>
                 <div>
                     <label>Score</label>
-                    <input class="form-control" type="text" name="nom" th:value="${patient.nom}">
-                    <span class="text-danger" th:errors="${patient.nom}"></span>
+                    <input class="form-control" type="text" name="nom" th:value="${patient.score}">
+                    <span class="text-danger" th:errors="${patient.score}"></span>
                 </div>
-                <button class="btn btn-primary mb-2" type="submit" >save</button>
+                <button class="btn btn-primary mt-2" type="submit" >save</button>
             </form>
 
         </div>

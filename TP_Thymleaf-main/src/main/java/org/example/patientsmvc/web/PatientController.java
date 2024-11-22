@@ -52,17 +52,17 @@ public class PatientController {
         return patientRepository.findAll();
     }
 
-    @GetMapping("/formPatient")
+    @GetMapping("/formPatients")
     public String formPatient(Model model ){
         model.addAttribute("patient",new Patient());
-        return "formPatient";
+        return "formPatients";
     }
 
     @PostMapping("/save")
-    public String savePatient(@Valid Patient patient, BindingResult bindingResult,
+    public String save(@Valid Patient patient, BindingResult bindingResult,
                               @RequestParam( defaultValue = "0")int page,
                               @RequestParam(defaultValue = "")String keyword) {
-        if (bindingResult.hasErrors()) return "formPatient";
+        if (bindingResult.hasErrors()) return "index";
         patientRepository.save(patient);
         return "redirect:/index?page=" + page + "&keyword=" + keyword;
     }
